@@ -1,0 +1,372 @@
+/* =======GERAL========*/
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+section {
+  padding-block: 10rem;
+}
+:root {
+  --primary-color: hsla(170, 100%, 26%, 1);
+  --headline: hsla(210, 11%, 15%, 1);
+  --paragraph: hsla(210, 9%, 31%, 1);
+  --brandbeige: hsla(39, 100%, 97%, 1);
+  --brandlight: hsla(148, 23%, 89%, 1);
+  --bgbrandlight: hsla(180, 14%, 97%, 1);
+  --branddark-hover: hsla(170, 100%, 14%, 1);
+  --nav-height: 7.2rem;
+  font-size: 62.5%; /* 1 rem = 10px */
+}
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  font-family: 'DM Sans';
+  font-size: 1.6rem;
+
+  text-align: center;
+
+  overflow: overlay;
+
+  background-color: var(--bgbrandlight);
+}
+ul {
+  list-style: none;
+}
+.button {
+  background: var(--primary-color);
+  border: none;
+  border-radius: 4rem;
+  margin-bottom: 6rem;
+  width: fit-content;
+
+  padding: 1.6rem 3.6rem;
+
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+
+  text-decoration: none;
+  transition: background 200ms;
+}
+.button:hover {
+  background-color: var(--branddark-hover);
+}
+/* ========================HOME ==================*/
+.wrapper {
+  width: 37.5rem;
+  margin-right: auto;
+  margin-left: auto;
+  padding-inline: 2.4rem;
+}
+img {
+  max-width: 100%;
+}
+#home {
+  padding-top: calc(4.1rem + var(--nav-height));
+}
+#home::before {
+  content: '';
+  width: 100%; /* ocupar 100% da largura do espaço da tela !!vw = viewport */
+  height: calc(108rem + var(--nav-height));
+  background-color: var(--brandlight);
+  display: block;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+#home .button {
+  margin-inline: auto; /* poderia tambem usa margin left and right auto, daria na mesma*/
+}
+#home p {
+  font-size: 1.8rem;
+  line-height: 150%;
+  color: var(--paragraph);
+  margin-bottom: 3.2rem;
+}
+
+#home img {
+  width: 26.1rem;
+  display: block;
+  margin-inline: auto;
+  object-position: 0 2rem;
+}
+#home .stats {
+  width: 32.7rem;
+  padding-block: 4rem;
+  margin-inline: auto;
+
+  background-color: var(--brandbeige);
+  border: 1px solid var(--brandlight);
+  border-radius: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6rem;
+}
+#home .stat h3 {
+  font-size: 4.8rem;
+  color: var(--headline);
+  line-height: 150%;
+
+  margin-bottom: 0.4rem;
+}
+
+#home .stat p {
+  margin: 0;
+  color: var(--primary-color);
+  font-size: 1.6rem;
+}
+section header h4 {
+  font-size: 1.4rem;
+  color: var(--primary-color);
+  margin-bottom: 1.6rem;
+  font-weight: 700;
+
+  line-height: 150%;
+  letter-spacing: 0.08rem;
+
+  text-transform: uppercase;
+}
+section header h2 {
+  font-size: 3rem;
+  line-height: 3.9rem;
+
+  color: var(--headline);
+}
+section header h1 {
+  font-size: 3.4rem;
+  color: var(--headline);
+  line-height: 130%;
+  margin-bottom: 2.4rem;
+}
+section .content p {
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 150%;
+  color: var(--paragraph);
+}
+/*===================NAVIGATION================*/
+nav {
+  display: flex;
+
+  height: var(--nav-height);
+
+  position: fixed;
+  top: 0;
+  width: 100vw;
+
+  z-index: 100;
+}
+nav .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav.scroll {
+  background-color: var(--primary-color);
+}
+nav.scroll .logo path {
+  fill: white;
+}
+nav.scroll button path {
+  stroke: white;
+}
+nav button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+/*===================MENU-EXPANDED================*/
+
+body.menu-expanded {
+  overflow: hidden;
+}
+body.menu-expanded > :not(nav) {
+  visibility: hidden;
+}
+.menu,
+.close-menu,
+body.menu-expanded .open-menu {
+  opacity: 0;
+  visibility: hidden;
+}
+body.menu-expanded .menu,
+body.menu-expanded .close-menu {
+  opacity: 1;
+  visibility: visible;
+}
+.menu {
+  transform: translateY(100%);
+}
+body.menu-expanded .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: var(--primary-color);
+
+  width: 100vw;
+  height: 100vh; /* existem o vw"ou seja width" e o vh"ou seja o height"*/
+
+  padding-top: var(--nav-height);
+  transition: transform 300ms;
+  transform: translateY(0);
+}
+
+.menu ul:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+
+  margin-top: 6rem;
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 3.1rem;
+}
+.menu ul li a {
+  color: white;
+  text-decoration: none;
+}
+.menu .button {
+  background: #ffffff;
+  border-radius: 4rem;
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 2.3rem;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  display: inline-block;
+  padding: 16px 32px;
+
+  margin-top: 4.8rem;
+  margin-bottom: 8rem;
+}
+.social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
+}
+body.menu-expanded .logo,
+body.menu-expanded button {
+  position: relative;
+  z-index: 100;
+}
+
+body.menu-expanded .logo path {
+  fill: white;
+}
+body.menu-expanded button path {
+  stroke: white;
+}
+/*===================SERVICES================*/
+#services header h2 {
+  margin-bottom: 6rem;
+}
+
+#services .cards {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+#services .card {
+  padding: 2.4rem;
+  text-align: left;
+
+  background: #ffffff;
+
+  border: 1px solid var(--brandlight);
+  border-radius: 0.6rem;
+}
+
+#services .card h3 {
+  margin-block: 1.6rem;
+}
+
+/*===================ABOUT================*/
+#about {
+  text-align: left;
+  background-color: var(--brandbeige);
+}
+#about header h2 {
+  margin-bottom: 2.4rem;
+}
+#about .content p {
+  margin-top: 2.4rem;
+  margin-bottom: 6rem;
+}
+
+/*===================CONTACT================*/
+#contact {
+  text-align: left;
+}
+#contact header {
+  margin-bottom: 3.2rem;
+}
+#contact ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  margin-bottom: 3.2rem;
+}
+#contact ul li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+/*===================FOOTER================*/
+footer .logo {
+  display: inline-block;
+  margin-bottom: 2.4rem;
+}
+footer .logo svg {
+  width: 23.6rem;
+  height: 3.1rem;
+}
+footer {
+  background-color: var(--primary-color);
+  padding-block: 6rem;
+  padding-inline: 0;
+  text-align: left;
+  color: white;
+}
+footer p {
+  color: var(--brandbeige);
+  line-height: 2;
+
+  margin-bottom: 3.2rem;
+}
+footer .social-links {
+  justify-content: flex-start;
+}
+/* BUTTON BACK TO TOP */
+#backToTopButton{
+  position: fixed;
+  bottom: 1rem;
+  right: 2.5rem;
+
+  opacity: 0;
+  visibility: hidden;
+}
+#backToTopButton.show {
+  opacity: 1;
+  visibility: visible;
+}
