@@ -14,6 +14,7 @@ section {
   --brandbeige: hsla(39, 100%, 97%, 1);
   --brandlight: hsla(148, 23%, 89%, 1);
   --bgbrandlight: hsla(180, 14%, 97%, 1);
+  --branddark-hover: hsla(170, 100%, 14%, 1);
   --nav-height: 7.2rem;
   font-size: 62.5%; /* 1 rem = 10px */
 }
@@ -38,6 +39,31 @@ body {
 }
 ul {
   list-style: none;
+}
+.button {
+  background: var(--primary-color);
+  border: none;
+  border-radius: 4rem;
+  margin-bottom: 6rem;
+  width: fit-content;
+
+  padding: 1.6rem 3.6rem;
+
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+
+  text-decoration: none;
+  transition: background 200ms;
+}
+.button:hover {
+  background-color: var(--branddark-hover);
 }
 /* ========================HOME ==================*/
 .wrapper {
@@ -64,7 +90,9 @@ img {
   left: 0;
   z-index: -1;
 }
-
+#home .button {
+  margin-inline: auto; /* poderia tambem usa margin left and right auto, daria na mesma*/
+}
 #home p {
   font-size: 1.8rem;
   line-height: 150%;
@@ -72,27 +100,6 @@ img {
   margin-bottom: 3.2rem;
 }
 
-#home button {
-  background: var(--primary-color);
-  border: none;
-  border-radius: 4rem;
-  margin-bottom: 6rem;
-  height: 5.2rem;
-  width: 26.3rem;
-
-  color: #ffffff;
-  text-transform: uppercase;
-  font-size: 1.4rem;
-  font-weight: 700;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.6rem;
-
-  margin-left: auto;
-  margin-right: auto;
-}
 #home img {
   width: 26.1rem;
   display: block;
@@ -152,7 +159,7 @@ section .content p {
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 150%;
- color: var(--paragraph);
+  color: var(--paragraph);
 }
 /*===================NAVIGATION================*/
 nav {
@@ -305,4 +312,61 @@ body.menu-expanded button path {
 #about .content p {
   margin-top: 2.4rem;
   margin-bottom: 6rem;
+}
+
+/*===================CONTACT================*/
+#contact {
+  text-align: left;
+}
+#contact header {
+  margin-bottom: 3.2rem;
+}
+#contact ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  margin-bottom: 3.2rem;
+}
+#contact ul li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+/*===================FOOTER================*/
+footer .logo {
+  display: inline-block;
+  margin-bottom: 2.4rem;
+}
+footer .logo svg {
+  width: 23.6rem;
+  height: 3.1rem;
+}
+footer {
+  background-color: var(--primary-color);
+  padding-block: 6rem;
+  padding-inline: 0;
+  text-align: left;
+  color: white;
+}
+footer p {
+  color: var(--brandbeige);
+  line-height: 2;
+
+  margin-bottom: 3.2rem;
+}
+footer .social-links {
+  justify-content: flex-start;
+}
+/* BUTTON BACK TO TOP */
+#backToTopButton{
+  position: fixed;
+  bottom: 1rem;
+  right: 2.5rem;
+
+  opacity: 0;
+  visibility: hidden;
+}
+#backToTopButton.show {
+  opacity: 1;
+  visibility: visible;
 }
